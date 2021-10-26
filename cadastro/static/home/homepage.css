@@ -1,0 +1,102 @@
+@media only screen and (max-device-width: 700px) {
+/* .menu { width:400px; } */
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  background: url(background.jpg) no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+header{
+  position: fixed;
+	z-index: 1;
+  background: #2F323A;
+  padding: 20px;
+  width: calc(100% - 0%);
+  top: 0;
+  height: 30px;
+  opacity: 0.8;
+}
+
+.left_area h3{
+  color: #fff;
+  margin: 0;
+  font-size: 22px;
+  font-weight: 900;
+	
+}
+
+.left_area span{
+  color: #FFC300;
+}
+
+.sidebar{
+  top: 70px;
+  background: #2F323A;
+  padding-top: 30px;
+  position: fixed;
+  left: 0;
+  width: 200px;
+  height: 100%;
+  transition: 0.5s;
+  opacity: 0.8;
+}
+
+.sidebar a{
+  color: #fff;
+  display: block;
+  width: 100%;
+  line-height: 60px;
+  text-decoration: none;
+  padding-left: 40px;
+  box-sizing: border-box;
+  transition: 0.5s;
+  transition-property: background;
+}
+
+.sidebar a:hover{
+  background: #FFC300;
+}
+
+.sidebar i{
+  padding-right: 10px;
+}
+
+label #sidebar_btn{
+  z-index: 1;
+  color: #fff;
+  position: fixed;
+  cursor: pointer;
+  left: 300px;
+  font-size: 20px;
+  margin: 5px 0;
+  transition: 0,5s;
+  transition-property: color;
+}
+
+label #sidebar_btn:hover{
+  color: #FFC300;
+}
+
+.conteudo .cartao p{
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  opacity: 0.8;
+  margin-left: 250px;  
+  margin-right: 50px;
+}
+
+.conteudo .cartao span{
+  color: #FFC300;
+  font-size: 20px;
+}
+
+.conteudo {
+  margin-top: 100px;
+}
