@@ -25,7 +25,7 @@ SECRET_KEY = "g(ugnz#7lb$jbex0q4vtc=uh@do#(zru_qzk+z!@ll@yeg=k#y"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -128,8 +128,16 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
+import os
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-STATIC_URL = "/static/"
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "cadastro/static"),
+    # '/var/www/static/',
+)
+
 
 
 # Django-allauth
@@ -142,7 +150,7 @@ SITE_ID = 1
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 LOGIN_REDIRECT_URL = "/"
 ACCOUNT_SESSION_REMEMBER = True
-ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = True
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = "email"
 ACCOUNT_EMAIL_REQUIRED = True
@@ -152,7 +160,3 @@ ACCOUNT_UNIQUE_EMAIL = True
 # crispy-forms
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
-
-# Configure Django App for Heroku.
-import django_heroku
-django_heroku.settings(locals())

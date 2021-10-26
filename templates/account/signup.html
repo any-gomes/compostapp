@@ -1,14 +1,29 @@
-{% extends 'base.html' %}
-
 {% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Cadastro</title>
+		{% load static %}
+    <link href="{% static 'cadastro/cadastro.css' %}" rel="stylesheet">
+  </head>
 
-{% block title %}Cadastro{% endblock %}
-
-{% block content %}
-    <h2>Cadastro</h2>
-    <form method="post">
+  <body>
+		<header>      
+      <div class="left_area">
+        <a style="text-decoration: none" href="{% url 'pages:home' %}"><h3> Compost<span>App</span></h3> </a>    
+      </div>      
+    </header>
+    <div class="user-login">
+			<h1 class="user-login_title">Fazer Cadastro</h1>
+			<form method="post">
         {% csrf_token %}
         {{ form|crispy }}
         <button class="btn btn-success" type="submit">Cadastrar</button>
     </form>
-{% endblock %}
+
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -7,3 +7,4 @@ app_name = "pages"
 urlpatterns = [
     path("", views.HomePageView.as_view(), name="home"),
 ]
+
