@@ -1,0 +1,37 @@
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Cadastro</title>
+		{% load static %}
+<<<<<<< HEAD
+    {% load i18n %}
+=======
+>>>>>>> 83fec09fb9aff0e6c2933adc42dcd86d1fb721fb
+    <link href="{% static 'cadastro/cadastro.css' %}" rel="stylesheet">
+  </head>
+
+  <body>
+		<header>      
+      <div class="left_area">
+        <a style="text-decoration: none" href="{% url 'pages:home' %}"><h3> Compost<span>App</span></h3> </a>    
+      </div>      
+    </header>
+    <div class="user-login">
+<<<<<<< HEAD
+			<h1 class="user-login_title">{% trans "Fazer Cadastro" %}</h1>
+=======
+			<h1 class="user-login_title">Fazer Cadastro</h1>
+>>>>>>> 83fec09fb9aff0e6c2933adc42dcd86d1fb721fb
+			<form method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button class="btn btn-success" type="submit">{% trans "Cadastrar" %}</button>
+    </form>
+
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

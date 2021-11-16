@@ -1,0 +1,94 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-11-09 19:42-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+
+#: .\templates\account\login.html:24
+msgid "Fazer Login"
+msgstr ""
+
+#: .\templates\account\login.html:28 .\templates\home.html:36
+msgid "Entrar"
+msgstr ""
+
+#: .\templates\account\signup.html:20
+msgid "Fazer Cadastro"
+msgstr ""
+
+#: .\templates\account\signup.html:24 .\templates\home.html:37
+msgid "Cadastrar"
+msgstr ""
+
+#: .\templates\home.html:30
+msgid "Página Inicial"
+msgstr ""
+
+#: .\templates\home.html:31
+msgid "Composteira"
+msgstr ""
+
+#: .\templates\home.html:32
+msgid "Perfil"
+msgstr ""
+
+#: .\templates\home.html:33
+msgid "Configurações"
+msgstr ""
+
+#: .\templates\home.html:34
+msgid "Sair"
+msgstr ""
+
+#: .\templates\home.html:39
+msgid "Idioma"
+msgstr ""
+
+#: .\templates\home.html:45
+msgid "O que é Compostagem e Para que Serve?"
+msgstr ""
+
+#: .\templates\home.html:46
+msgid ""
+"A compostagem é um processo natural de decomposição da matéria orgânica de "
+"origem animal ou vegetal. Na propriedade rural, a compostagem pode ser um "
+"processo de grande importância econômica, pois resíduos como esterco dos "
+"animais, palhas, folhas de árvores e outros resíduos orgânicos são "
+"reciclados, transformando-se em fertilizantes ou húmus."
+msgstr ""
+
+#: .\templates\home.html:47
+msgid ""
+"O processo de compostagem envolve transformações muito complexas de natureza "
+"biológica e química, promovidas por uma grande variedade de microrganismos "
+"como fungos e bactérias que vivem no solo."
+msgstr ""
+
+#: .\templates\home.html:51
+msgid "Benefícios da Compostagem"
+msgstr ""
+
+#: .\templates\home.html:51
+msgid ""
+"Reciclar os restos de comida e residuos vegetais das casas, escolas, jardins "
+"ou hortas, que teriam como destino final o aterro sanitário ou o lixão."
+msgstr ""
+
+#: .\templates\home.html:54
+msgid "Como Fazer"
+msgstr ""
