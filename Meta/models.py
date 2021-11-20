@@ -8,7 +8,7 @@ class Meta(models.Model):
     data_inicio_meta = models.DateField()
     data_fim_meta = models.DateField()
     concluida = models.BooleanField()
-    desempenhoMeta = models.ForeignKey('DesempenhoMeta', on_delete=models.SET_NULL, null=True)
+    desempenhoMeta = models.ForeignKey('desempenhoMeta.DesempenhoMeta', on_delete=models.SET_NULL, null=True)
 
 # Metadados
     class Meta:

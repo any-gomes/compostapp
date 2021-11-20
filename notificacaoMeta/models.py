@@ -4,8 +4,8 @@ class Notificacao(models.Model):
     data_notif = models.DateField(null = True, blank = True)
     titulo_notif = models.CharField(max_length = 20)
     descricao_notif = models.CharField(max_length = 200)
-    usuario = models.ForeignKey('Usuario', on_delete = models.SET_NULL, null = True)
-    meta = models.ForeignKey('Meta', on_delete = models.SET_NULL, null = True)
+    usuario = models.ForeignKey('users.User', on_delete = models.SET_NULL, null = True)
+    meta = models.ForeignKey('meta.Meta', on_delete = models.SET_NULL, null = True)
 
 # Metadados
     class Meta:

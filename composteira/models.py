@@ -5,6 +5,7 @@ import acompanhamentoComposteira
 from acompanhamentoComposteira.apps import AcompanhamentoComposteiraConfig
 from meta.apps import MetaConfig
 import meta, insumo
+from insumo.models import Insumo
 
 class Composteira(models.Model):
 
@@ -15,12 +16,13 @@ class Composteira(models.Model):
    concluido = models.BooleanField(null = True, blank = True)
    data_conclusao_comp = models.DateField(null = True, blank = True)
    qualidade = models.BooleanField(null = True, blank = True)
-   #insumo = models.ManyToManyField(Insumo, verbose_name="Lista de Insumos")
+   insumo = models.ManyToManyField('insumo.Insumo', verbose_name="Lista de Insumos")
    humus_produzido = models.BooleanField(null = True, blank = True)
-   #meta = models.ManyToManyField(MetaConfig)
-   acompanhamento = models.ForeignKey('AcompanhamentoComposteira',on_delete=models.CASCADE,)
-   #meta = models.ForeignKey(meta,on_delete=models.CASCADE,)
-   insumo = models.ForeignKey('Insumo', on_delete=models.CASCADE, )
+   #meta = models.ManyToManyField('Meta', verbose_name="Lista de Metas")
+   acompanhamento = models.ForeignKey('acompanhamentoComposteira.AcompanhamentoComposteira',on_delete=models.CASCADE, null= True, blank = True)
+   meta = models.ForeignKey('meta.Meta',on_delete=models.CASCADE, null= True, blank = True)
+   
+   # insumo = models.ForeignKey('insumo.Insumo', on_delete=models.CASCADE, )
 
    class Meta:
         db_table = 'Composteira'
@@ -36,7 +38,7 @@ class Composteira(models.Model):
    def acompanhar_comp(self):
       print("")
    def adicionar_insumo(self):
-      print("")
+        print("")
    def sugerir_insumo(self):
       print("")
    def calcular_qualidade_comp(self):
