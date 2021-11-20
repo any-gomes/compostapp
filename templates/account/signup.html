@@ -6,10 +6,8 @@
     <meta name="viewport" content="width=device-width">
     <title>Cadastro</title>
 		{% load static %}
-<<<<<<< HEAD
     {% load i18n %}
-=======
->>>>>>> 83fec09fb9aff0e6c2933adc42dcd86d1fb721fb
+    
     <link href="{% static 'cadastro/cadastro.css' %}" rel="stylesheet">
   </head>
 
@@ -20,11 +18,7 @@
       </div>      
     </header>
     <div class="user-login">
-<<<<<<< HEAD
-			<h1 class="user-login_title">{% trans "Fazer Cadastro" %}</h1>
-=======
 			<h1 class="user-login_title">Fazer Cadastro</h1>
->>>>>>> 83fec09fb9aff0e6c2933adc42dcd86d1fb721fb
 			<form method="post">
         {% csrf_token %}
         {{ form|crispy }}

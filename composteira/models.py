@@ -1,4 +1,10 @@
+from django.contrib.auth.models import AbstractUser
 from django.db import models
+
+import acompanhamentoComposteira
+from acompanhamentoComposteira.apps import AcompanhamentoComposteiraConfig
+from meta.apps import MetaConfig
+import meta, insumo
 
 class Composteira(models.Model):
 
@@ -9,10 +15,12 @@ class Composteira(models.Model):
    concluido = models.BooleanField(null = True, blank = True)
    data_conclusao_comp = models.DateField(null = True, blank = True)
    qualidade = models.BooleanField(null = True, blank = True)
-   insumo = models.ManyToManyField(Insumo, verbose_name="Lista de Insumos")
+   #insumo = models.ManyToManyField(Insumo, verbose_name="Lista de Insumos")
    humus_produzido = models.BooleanField(null = True, blank = True)
-   meta = models.ManyToManyField(Meta, verbose_name="Lista de Meta")
-   acompanhamento = models.ManyToManyField(Acompanhamento, verbose_name="Lista de Acompanhamento")
+   #meta = models.ManyToManyField(MetaConfig)
+   acompanhamento = models.ForeignKey('AcompanhamentoComposteira',on_delete=models.CASCADE,)
+   #meta = models.ForeignKey(meta,on_delete=models.CASCADE,)
+   insumo = models.ForeignKey('Insumo', on_delete=models.CASCADE, )
 
    class Meta:
         db_table = 'Composteira'
@@ -32,9 +40,9 @@ class Composteira(models.Model):
    def sugerir_insumo(self):
       print("")
    def calcular_qualidade_comp(self):
-      Print("")
+      print("")
    def calcular_temp_comp(self):
-      Print("")
+      print("")
 
 
 

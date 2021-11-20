@@ -31,12 +31,12 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 #HTTPS
-SECURE_SSL_REDIRECT = False
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+#SECURE_SSL_REDIRECT = False
+#SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 #COOKIES
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+#SESSION_COOKIE_SECURE = True
+#CSRF_COOKIE_SECURE = True
 
 # Application definition
 
@@ -49,9 +49,6 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.sites",
-    #Forum
-    'compressor',
-    #'django_simple_forum'
     # 3rd party
     "allauth",
     "allauth.account",
@@ -60,6 +57,14 @@ INSTALLED_APPS = [
     # local
     "users.apps.UsersConfig",
     "pages.apps.PagesConfig",
+    "composteira.apps.ComposteiraConfig",
+    "insumo.apps.InsumoConfig",
+    "acompanhamentoComposteira.apps.AcompanhamentoComposteiraConfig",
+    "ajuda.apps.AjudaConfig",
+    "classificacao.apps.ClassificacaoConfig",
+    "desempenhoMeta.apps.DesempenhoMetaConfig",
+    "meta.apps.MetaConfig",
+    "notificacaoMeta.apps.NotificacaoMetaConfig",
 ]
 
 AUTH_USER_MODEL = "users.User"
@@ -109,12 +114,6 @@ DATABASES = {
         "PORT": 5432,
     }
 }
-
-# AWS details
-
-AWS_ACCESS_KEY_ID = "any.santos@aluno.ifsp.edu.br"
-
-AWS_SECRET_ACCESS_KEY = "Gaby3793*"
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 

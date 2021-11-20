@@ -1,6 +1,6 @@
 from django.db import models
 
-class Classificacao(models.IntegerChoices):
+"""class Classificacao(models.IntegerChoices):
     Bom = 3, 'Bom'
     Medio = -1, 'Medio'
     Ruim = -3, 'Ruim'
@@ -12,4 +12,4 @@ class Classificacao(models.IntegerChoices):
     class Meta:
         db_table = 'Classificacao'
 
-# Métodos
+# Métodos"""
