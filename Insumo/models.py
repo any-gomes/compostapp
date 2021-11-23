@@ -14,4 +14,4 @@ class Meta:
 
 # Métodos
 def __str__(self):
-    return self.insumo_id
+    return self.nome_insumo

@@ -21,6 +21,8 @@ from django.conf import settings
 from django.conf.urls import i18n
 
 from django.conf.urls.i18n import i18n_patterns
+from users import views
+
 
 urlpatterns = [
     # Django Admin
@@ -29,7 +31,8 @@ urlpatterns = [
     path("accounts/", include("allauth.urls")),
     # Local
     path("", include("pages.urls", namespace="pages")),
-    
+    path('homeComposteira/',views.homeComposteira, name="home-composteira"),
+    path('novaComposteira/',views.novaComposteira, name="nova-composteira"),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += i18n_patterns (

@@ -10,7 +10,7 @@ from insumo.models import Insumo
 class Composteira(models.Model):
 
    nome = models.CharField(max_length = 30)
-   data_inicio_comp = models.DateField(null = True, blank = True)
+   data_inicio_comp = models.DateField(auto_now_add=True, null = True, blank = True)
    tamanho_comp =  models.IntegerField(null = True, blank = True)
    total_humus_produzido = models.FloatField(null = True, blank = True)
    concluido = models.BooleanField(null = True, blank = True)
