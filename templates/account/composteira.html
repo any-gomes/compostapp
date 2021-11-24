@@ -26,31 +26,13 @@
     </div>
     
     <ul class="composteira-list">
+      {% for composteira in composteiras %}
       <li class="composteira-item">
-        <span>Nome Composteira</span>
+        <span><a href="{{composteira.id}}/">{{composteira.nome}}</a></span>
         <span><i class="fas fa-trash"></i></span>
-        <span><i class="fas fa-edit"></i></span>
+        <a href="editComposteira/{{composteira.id}}/"><span><i class="fas fa-edit"></i></span></a>
       </li>
-      <li class="composteira-item">
-        <span>Nome Composteira</span>
-        <span><i class="fas fa-trash"></i></span>
-        <span><i class="fas fa-edit"></i></span>
-      </li>
-      <li class="composteira-item">
-        <span>Nome Composteira</span>
-        <span><i class="fas fa-trash"></i></span>
-        <span><i class="fas fa-edit"></i></span>
-      </li>
-      <li class="composteira-item">
-        <span>Nome Composteira</span>
-        <span><i class="fas fa-trash"></i></span>
-        <span><i class="fas fa-edit"></i></span>
-      </li>
-      <li class="composteira-item">
-        <span>Nome Composteira</span>
-        <span><i class="fas fa-trash"></i></span>
-        <span><i class="fas fa-edit"></i></span>
-      </li>
+      {% endfor %}
     </ul>
   </div>
 </div>

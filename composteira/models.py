@@ -29,7 +29,8 @@ class Composteira(models.Model):
 
    # Métodos
    def __str__(self):
-      return "{} ({})".format(self.data_inicio_comp, self.tamanho_comp)
+      return self.nome
+      #return "{} ({})".format(self.data_inicio_comp, self.tamanho_comp)
 
    def adicionar_meta(self):
       print("")
@@ -46,5 +47,6 @@ class Composteira(models.Model):
    def calcular_temp_comp(self):
       print("")
 
+created_at = models.CharField
 
 

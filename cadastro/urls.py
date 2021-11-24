@@ -31,8 +31,10 @@ urlpatterns = [
     path("accounts/", include("allauth.urls")),
     # Local
     path("", include("pages.urls", namespace="pages")),
-    path('homeComposteira/',views.homeComposteira, name="home-composteira"),
-    path('novaComposteira/',views.novaComposteira, name="nova-composteira"),
+    path('homeComposteira/',views.composteiraList, name="home-composteira"),
+    path('homeComposteira/novaComposteira/',views.novaComposteira, name="nova-composteira"),
+    path('homeComposteira/<int:id>/', views.composteiraView, name="composteira-view"),
+    path('homeComposteira/editComposteira/<int:id>/', views.editComposteiraM, name="edit-composteira"),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += i18n_patterns (

@@ -26,3 +26,26 @@ def novaComposteira(request):
         
 def homeComposteira(request):
         return render(request,'account/composteira.html')
+
+def composteiraList(request):
+    composteiras = Composteira.objects.all() #resgata objs do bd
+    return render(request, 'account/composteira.html', {'composteiras': composteiras}) #envia para o template desejado
+
+def composteiraView(request, id):
+    composteiraV = get_object_or_404(Composteira, pk=id)
+    return render(request, 'account/composteiraItem.html', {'composteira': composteiraV})
+
+def editComposteiraM(request, id):
+    composteiraE = get_object_or_404(Composteira, pk=id)
+    form = ComposteiraForms(instance=Composteira) 
+    
+    if(request.method == 'POST'):
+        form = ComposteiraForms(request.POST, instance=composteira)
+
+        if(form.is_valid()):
+            composteiraE.save()
+            return redirect('/')
+        else:
+            return render(request, 'account/editComposteira.html', {'form' : form, 'composteira': composteiraE})
+    else:
+         return render(request, 'account/editComposteira.html', {'form' : form, 'composteira': composteiraE})  
