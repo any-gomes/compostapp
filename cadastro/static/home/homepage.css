@@ -206,3 +206,13 @@ label #sidebar_btn:hover{
 .done .fa-check {
   color: #3476e2;
 }
+
+/* Messages */
+
+ul.messages {
+  padding: 0;
+}
+
+ul.messages li {
+  list-style: none;
+}

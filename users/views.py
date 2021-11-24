@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render, get_object_or_404
 from django.http import HttpResponse
-
+from django.contrib import messages
 import composteira
 
 from .models import models
@@ -37,15 +37,26 @@ def composteiraView(request, id):
 
 def editComposteiraM(request, id):
     composteiraE = get_object_or_404(Composteira, pk=id)
-    form = ComposteiraForms(instance=Composteira) 
+    form = ComposteiraForms(instance=composteiraE) 
     
     if(request.method == 'POST'):
-        form = ComposteiraForms(request.POST, instance=composteira)
+        form = ComposteiraForms(request.POST, instance=composteiraE)
 
         if(form.is_valid()):
             composteiraE.save()
-            return redirect('/')
+            return redirect('/homeComposteira')
         else:
             return render(request, 'account/editComposteira.html', {'form' : form, 'composteira': composteiraE})
     else:
          return render(request, 'account/editComposteira.html', {'form' : form, 'composteira': composteiraE})  
+
+
+def deleteComposteira(request, id):
+    composteiraD = get_object_or_404(Composteira, pk=id)
+    composteiraD.delete()
+
+    messages.info(request, 'Composteira deletada com sucesso!')
+
+
+    return redirect('/homeComposteira')
+

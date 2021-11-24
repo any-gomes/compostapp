@@ -35,6 +35,7 @@ urlpatterns = [
     path('homeComposteira/novaComposteira/',views.novaComposteira, name="nova-composteira"),
     path('homeComposteira/<int:id>/', views.composteiraView, name="composteira-view"),
     path('homeComposteira/editComposteira/<int:id>/', views.editComposteiraM, name="edit-composteira"),
+    path('homeComposteira/deleteComposteira/<int:id>/', views.deleteComposteira, name="delete-composteira"),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += i18n_patterns (

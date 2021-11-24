@@ -24,12 +24,21 @@
       <input type="text" id="search" name="search" placeholder="Digite o nome da composteira para pesquisar">
       <i class="fas fa-search"></i>
     </div>
-    
+    {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+      <li {% if message.tags %}class="alert alert-{{message.tags}}"{% endif %}></li>
+
+      {% endfor %}
+
+    </ul>
+
+    {% endif %}
     <ul class="composteira-list">
       {% for composteira in composteiras %}
       <li class="composteira-item">
         <span><a href="{{composteira.id}}/">{{composteira.nome}}</a></span>
-        <span><i class="fas fa-trash"></i></span>
+        <a href="deleteComposteira/{{composteira.id}}/"><span><i class="fas fa-trash"></i></span></a>
         <a href="editComposteira/{{composteira.id}}/"><span><i class="fas fa-edit"></i></span></a>
       </li>
       {% endfor %}
