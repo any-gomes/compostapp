@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt" dir="pt-BR">
+<head>
+	<meta charset="utf-8">
+	<title>CompostApp</title>
+	{% load static %}
+  {% load i18n %}
+	<link href="{% static 'home/homepage.css' %}" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+	
+</head>
+
+<body>
+
+  <div class="offset-1 col-10 list-div">
+    <h1>{{composteira.nome}}</h1>
+    <p>{{composteira.data_inicio_comp}}</p>
+    <p>{{composteira.tamanho_comp}}</p>
+
+</div>
+
+  </body>
+</html>
