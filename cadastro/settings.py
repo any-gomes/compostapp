@@ -105,12 +105,19 @@ WSGI_APPLICATION = "cadastro.wsgi.application"
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
+   # "default": {
+   #     "ENGINE": "django.db.backends.postgresql",
+   #     "NAME": 'dbg3asv1h7ljq3',
+   #     "USER": 'omtrjwmznudpwt',
+   #     "PASSWORD": '782010bc87b76502772520df323553d78ab5862f786f4935a552e1142c733a5f',
+   #     "HOST": 'ec2-52-200-68-5.compute-1.amazonaws.com',
+   #     "PORT": 5432,
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": 'dbg3asv1h7ljq3',
-        "USER": 'omtrjwmznudpwt',
-        "PASSWORD": '782010bc87b76502772520df323553d78ab5862f786f4935a552e1142c733a5f',
-        "HOST": 'ec2-52-200-68-5.compute-1.amazonaws.com',
+        "NAME": 'dcrmac5dn96k4v',
+        "USER": 'izzxlwwzhcfjai',
+        "PASSWORD": '696f286be90a66c297126a2b9229964329e2d24018e8f45e2bfa5433a5656c8a',
+        "HOST": 'ec2-3-225-2-236.compute-1.amazonaws.com',
         "PORT": 5432,
     }
 }
