@@ -20,8 +20,8 @@ def novaComposteira(request):
 
         if nComposteira.is_valid():
             cd = nComposteira.cleaned_data
-            composteira = ComposteiraForms( nome=cd['nome'])
-            Composteira.save()
+            composteira = Composteira( nome=cd['nome'])
+            composteira.save()
 
            # composteira = nComposteira.save()
             return redirect('/')
