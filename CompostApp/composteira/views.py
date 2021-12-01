@@ -2,10 +2,12 @@ from django.shortcuts import redirect, render, get_object_or_404
 from django.http import HttpResponse
 from django.contrib import messages
 import composteira
+import insumo
 
 from .models import models
 from composteira.models import Composteira
 from composteira.forms import ComposteiraForms
+
 
 # Create your views here.
 
@@ -58,17 +60,19 @@ def composteiraView(request, id):
 
 def editComposteiraM(request, id):
     composteiraE = get_object_or_404(Composteira, pk=id)
-    form = ComposteiraForms(instance=composteiraE)
 
-    if (request.method == 'POST'):
+    if (request.method == 'POST'or None):
+        #nome = request.POST.get('nome')
         form = ComposteiraForms(request.POST, instance=composteiraE)
 
         if (form.is_valid()):
-            composteiraE.save()
+            composteiraE = Composteira(nome=cd['nome'])
+            composteiraE.save(commit=False)
             return redirect('/homeComposteira')
         else:
             return render(request, 'account/editComposteira.html', {'form': form, 'composteira': composteiraE})
     else:
+        form = ComposteiraForms()
         return render(request, 'account/editComposteira.html', {'form': form, 'composteira': composteiraE})
 
 
@@ -79,6 +83,22 @@ def deleteComposteira(request, id):
     messages.info(request, 'Composteira deletada com sucesso!')
 
     return redirect('/homeComposteira')
+
+def novoInsumo(request):
+    if request.method == 'POST':
+        nInsumo = InsumoForms(request.POST)
+
+        if nInsumo.is_valid():
+            cd = nInsumo.cleaned_data
+            insumo = Insumo( nome=cd['nome_insumo'])
+            insumo.save()
+
+           # composteira = nComposteira.save()
+            return redirect('/')
+    else:
+        nInsumo = InsumoForms()
+        return render(request, 'account/addinsumo.html', {'insumo': insumo})
+        #return render(request, 'account/addinsumo.html', {'form': nInsumo})
 
 def addDesempenhoMeta(request):
     if request.method == 'POST':
