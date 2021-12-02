@@ -2,7 +2,7 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.db.models.fields import IntegerField
 
-class Meta(models.Model):
+class MetaCompost(models.Model):
     id_meta = IntegerField(models.UUIDField)
     nome = models.CharField(max_length=50)
     data_inicio_meta = models.DateField()

@@ -17,14 +17,11 @@ class Composteira(models.Model):
     concluido = models.BooleanField(null=True, blank=True)
     data_conclusao_comp = models.DateField(null=True, blank=True)
     qualidade = models.BooleanField(null=True, blank=True)
-    insumo = models.ManyToManyField('insumo.insumo', verbose_name="Lista de Insumos")
+    insumo = models.ManyToManyField('insumo.Insumo', verbose_name="Lista de Insumos")
     humus_produzido = models.BooleanField(null=True, blank=True)
-    # meta = models.ManyToManyField('meta', verbose_name="Lista de Metas")
-    acompanhamento = models.ForeignKey('acompanhamentoComposteira.AcompanhamentoComposteira', on_delete=models.CASCADE,null=True, blank=True)
-    meta = models.ForeignKey('meta.meta', on_delete=models.CASCADE, null=True, blank=True)
+    meta = models.ManyToManyField('meta.MetaCompost', verbose_name="Lista de Metas")
+    acompanhamento = models.ManyToManyField('acompanhamentoComposteira.AcompanhamentoComposteira', verbose_name="Lista de Acompanhamento")
     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
-
-    # insumo = models.ForeignKey('insumo.insumo', on_delete=models.CASCADE, )
 
     class Meta:
         db_table = 'Composteira'
