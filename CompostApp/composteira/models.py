@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.contrib.auth import get_user_model
 
 import acompanhamentoComposteira
 from acompanhamentoComposteira.apps import AcompanhamentoComposteiraConfig
@@ -19,9 +20,9 @@ class Composteira(models.Model):
     insumo = models.ManyToManyField('insumo.insumo', verbose_name="Lista de Insumos")
     humus_produzido = models.BooleanField(null=True, blank=True)
     # meta = models.ManyToManyField('meta', verbose_name="Lista de Metas")
-    acompanhamento = models.ForeignKey('acompanhamentoComposteira.AcompanhamentoComposteira', on_delete=models.CASCADE,
-                                       null=True, blank=True)
+    acompanhamento = models.ForeignKey('acompanhamentoComposteira.AcompanhamentoComposteira', on_delete=models.CASCADE,null=True, blank=True)
     meta = models.ForeignKey('meta.meta', on_delete=models.CASCADE, null=True, blank=True)
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
 
     # insumo = models.ForeignKey('insumo.insumo', on_delete=models.CASCADE, )
 
