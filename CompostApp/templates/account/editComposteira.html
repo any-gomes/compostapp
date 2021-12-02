@@ -1,3 +1,4 @@
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="pt" dir="pt-BR">
 <head>
@@ -30,7 +31,7 @@
         <h1>Editando '{{composteira.nome}}'</h1>
         <form method="post">
             {% csrf_token %}
-            {{ form.as_p }}
+            {{ form|crispy }}
             <input type="submit" class="btn btn-success" value="Editar Composteira">
 
         </form>

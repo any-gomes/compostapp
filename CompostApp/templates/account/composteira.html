@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt" dir="pt-BR">
+
 <head>
-	<meta charset="utf-8">
-	<title>CompostApp</title>
-	{% load static %}
+  <meta charset="utf-8">
+  <title>CompostApp</title>
+  {% load static %}
   {% load i18n %}
-	<link href="{% static 'home/homepage.css' %}" rel="stylesheet">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
-	
+  <link href="{% static 'home/homepage.css' %}" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -21,31 +22,33 @@
       <a id="add-link" href="novaComposteira/"><i class="fas fa-plus"></i><span>{% trans "Insumo" %}</span></a>
 
 
-    <div class="col-9 serch-div">
-      <input type="text" id="search" name="search" placeholder="Digite o nome da composteira para pesquisar">
-      <i class="fas fa-search"></i>
+      <div class="col-9 serch-div">
+        <form method="GET" id="search-form">
+          <input type="text" id="search" name="search" placeholder="Digite o nome da composteira para pesquisar"
+            value="{{ request.GET.search }}">
+          <i class="fas fa-search" id="search-btn"></i>
+        </form>
+      </div>
+      {% if messages %}
+        <ul class="messages">
+          {% for message in messages %}
+          <li {% if message.tags %}class="alert alert-{{message.tags}}" {% endif %}></li>
+          {% endfor %}
+      </ul>
+      {% endif %}
+      
+      <ul class="composteira-list">
+        {% for composteira in composteiras %}
+        <li class="composteira-item">
+          <span><a href="{{composteira.id}}/">{{composteira.nome}}</a></span>
+          <a href="deleteComposteira/{{composteira.id}}/"><span><i class="fas fa-trash"></i></span></a>
+          <a href="editComposteira/{{composteira.id}}/"><span><i class="fas fa-edit"></i></span></a>
+        </li>
+        {% endfor %}
+      </ul>
     </div>
-    {% if messages %}
-    <ul class="messages">
-      {% for message in messages %}
-      <li {% if message.tags %}class="alert alert-{{message.tags}}"{% endif %}></li>
-
-      {% endfor %}
-
-    </ul>
-
-    {% endif %}
-    <ul class="composteira-list">
-      {% for composteira in composteiras %}
-      <li class="composteira-item">
-        <span><a href="{{composteira.id}}/">{{composteira.nome}}</a></span>
-        <a href="deleteComposteira/{{composteira.id}}/"><span><i class="fas fa-trash"></i></span></a>
-        <a href="editComposteira/{{composteira.id}}/"><span><i class="fas fa-edit"></i></span></a>
-      </li>
-      {% endfor %}
-    </ul>
   </div>
-</div>
+  <script src="{% static 'home/script.js' %}"></script>
+</body>
 
-  </body>
 </html>

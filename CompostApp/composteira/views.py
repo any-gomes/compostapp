@@ -26,7 +26,7 @@ def novaComposteira(request):
             composteira.save()
 
            # composteira = nComposteira.save()
-            return redirect('/')
+            return redirect('/homeComposteira')
     else:
         nComposteira = ComposteiraForms()
         return render(request, 'account/addComposteira.html', {'form': nComposteira})
@@ -49,7 +49,13 @@ def homeComposteira(request):
 
 
 def composteiraList(request):
-    composteiras = Composteira.objects.all()  # resgata objs do bd
+    search = request.GET.get('search')
+    if search:
+        composteiras = Composteira.objects.filter(nome__icontains=search)
+    
+    else:
+        composteiras = Composteira.objects.all().order_by('-data_inicio_comp')  # resgata objs do bd
+    
     return render(request, 'account/composteira.html', {'composteiras': composteiras})  # envia para o template desejado
 
 
@@ -66,7 +72,8 @@ def editComposteiraM(request, id):
         form = ComposteiraForms(request.POST, instance=composteiraE)
 
         if (form.is_valid()):
-            composteiraE = Composteira(nome=cd['nome'])
+            cd = form.cleaned_data
+            composteiraE = Composteira( nome=cd['nome'] )
             composteiraE.save(commit=False)
             return redirect('/homeComposteira')
         else:
@@ -83,6 +90,7 @@ def deleteComposteira(request, id):
     messages.info(request, 'Composteira deletada com sucesso!')
 
     return redirect('/homeComposteira')
+
 
 def novoInsumo(request):
     if request.method == 'POST':

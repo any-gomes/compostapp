@@ -1,10 +1,11 @@
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="pt" dir="pt-BR">
 <head>
 	<meta charset="utf-8">
 	<title>CompostApp</title>
 	{% load static %}
-    {% load i18n %}
+  {% load i18n %}
 	<link href="{% static 'home/homepage.css' %}" rel="stylesheet">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 	
@@ -30,7 +31,7 @@
         <h1>Adicionar Composteira</h1>
         <form method="post">
             {% csrf_token %}
-            {{ form.as_p }}
+            {{ form|crispy }}
             <input type="submit" class="btn btn-success" value="Criar Composteira">
 
         </form>
