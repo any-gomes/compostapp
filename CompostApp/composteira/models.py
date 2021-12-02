@@ -55,6 +55,6 @@ class Composteira(models.Model):
         print("")
 
 
-created_at = models.CharField
+
 
 

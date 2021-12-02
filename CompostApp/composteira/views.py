@@ -1,3 +1,6 @@
+from django.shortcuts import render
+
+# Create your views here.
 from django.shortcuts import redirect, render, get_object_or_404
 from django.http import HttpResponse
 from django.contrib import messages
@@ -21,9 +24,9 @@ def novaComposteira(request):
         nComposteira = ComposteiraForms(request.POST)
 
         if nComposteira.is_valid():
-            cd = nComposteira.cleaned_data
-            composteira = Composteira( nome=cd['nome'])
-            composteira.save()
+            
+            composteira = nComposteira.save()
+            
 
            # composteira = nComposteira.save()
             return redirect('/homeComposteira')
@@ -66,20 +69,18 @@ def composteiraView(request, id):
 
 def editComposteiraM(request, id):
     composteiraE = get_object_or_404(Composteira, pk=id)
+    form = ComposteiraForms(instance=composteiraE) 
 
-    if (request.method == 'POST'or None):
+    if (request.method == 'POST'):
         #nome = request.POST.get('nome')
         form = ComposteiraForms(request.POST, instance=composteiraE)
 
         if (form.is_valid()):
-            cd = form.cleaned_data
-            composteiraE = Composteira( nome=cd['nome'] )
-            composteiraE.save(commit=False)
+            composteiraE.save()
             return redirect('/homeComposteira')
         else:
             return render(request, 'account/editComposteira.html', {'form': form, 'composteira': composteiraE})
     else:
-        form = ComposteiraForms()
         return render(request, 'account/editComposteira.html', {'form': form, 'composteira': composteiraE})
 
 

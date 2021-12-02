@@ -1,44 +1,48 @@
 {% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="pt" dir="pt-BR">
+
 <head>
-	<meta charset="utf-8">
-	<title>CompostApp</title>
-	{% load static %}
+  <meta charset="utf-8">
+  <title>CompostApp</title>
+  {% load static %}
   {% load i18n %}
-	<link href="{% static 'home/homepage.css' %}" rel="stylesheet">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
-	
+  <link href="{% static 'home/homepage.css' %}" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+
 </head>
 
 <body>
 
-	<!-- <input type="checkbox" id="check" > -->
-	<!-- Header -->
-	<header>      
-      <div class="left_area">
-        <a style="text-decoration: none" href="{% url 'pages:home' %}"><h3> Compost<span>App</span></h3> </a>    
-      </div>      
-    </header>
-	
-    <!-- Fim do Header -->
+  <!-- <input type="checkbox" id="check" > -->
+  <!-- Header -->
+  <header>
+    <div class="left_area">
+      <a style="text-decoration: none" href="{% url 'pages:home' %}">
+        <h3> Compost<span>App</span></h3>
+      </a>
+    </div>
+  </header>
 
-      <!-- Foto de Perfil -->
+  <!-- Fim do Header -->
 
-		
-    <!-- Fim da Barra lateral -->    
-    <div class="edit-composteira">
-        <h1>Editando '{{composteira.nome}}'</h1>
-        <form method="post">
-            {% csrf_token %}
-            {{ form|crispy }}
-            <input type="submit" class="btn btn-success" value="Editar Composteira">
-
-        </form>
-        
+  <!-- Foto de Perfil -->
 
 
-    </div> 
+  <!-- Fim da Barra lateral -->
+  <div class="edit-composteira">
+    <h1>Editando '{{composteira.nome}}'</h1>
+    <form method="POST">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <input type="submit" class="btn btn-success" value="Editar Composteira">
 
-  </body>
+    </form>
+
+
+
+  </div>
+
+</body>
+
 </html>

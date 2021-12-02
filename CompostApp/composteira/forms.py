@@ -1,14 +1,8 @@
-from .models import Composteira
 from django import forms
-from composteira.models import Composteira
+from .models import Composteira
 
-
-class ComposteiraForms(forms.Form):
-        model = Composteira
-        nome = forms.CharField(max_length=30)
-        tamanho_comp = forms.IntegerField(required=True)
-        data_conclusao_comp = forms.DateField(required=True)
-        #insumo = forms.ManyToManyField(required=True)
-       # fields = '__all__'
-       # fields = ('nome', 'tamanho_comp', 'humus_produzido')
+class ComposteiraForms(forms.ModelForm):
+        class Meta:
+                model = Composteira
+                fields = ('nome', 'tamanho_comp', 'humus_produzido')
 
