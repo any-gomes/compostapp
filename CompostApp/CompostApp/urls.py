@@ -21,6 +21,7 @@ from django.conf.urls import i18n
 
 from django.conf.urls.i18n import i18n_patterns
 from composteira import views
+from insumo import urls
 
 
 urlpatterns = [
@@ -35,6 +36,7 @@ urlpatterns = [
     path('homeComposteira/<int:id>/', views.composteiraView, name="composteira-view"),
     path('homeComposteira/editComposteira/<int:id>/', views.editComposteiraM, name="edit-composteira"),
     path('homeComposteira/deleteComposteira/<int:id>/', views.deleteComposteira, name="delete-composteira"),
+    path('homeComposteira/novoInsumo/', views.novoInsumo, name="novo-insumo"),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += i18n_patterns (

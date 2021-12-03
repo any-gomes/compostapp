@@ -27,32 +27,6 @@ class Composteira(models.Model):
         db_table = 'Composteira'
 
     # Métodos
-    def __str__(self):
-        return self.nome
+def __str__(self): 
+        return str(self.nome)
         # return "{} ({})".format(self.data_inicio_comp, self.tamanho_comp)
-
-    def adicionar_meta(self):
-        print("")
-
-    def adicionar_acomp(self):
-        print("")
-
-    def acompanhar_comp(self):
-        print("")
-
-    def adicionar_insumo(self):
-        print("")
-
-    def sugerir_insumo(self):
-        print("")
-
-    def calcular_qualidade_comp(self):
-        print("")
-
-    def calcular_temp_comp(self):
-        print("")
-
-
-
-
-
