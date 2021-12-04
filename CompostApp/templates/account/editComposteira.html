@@ -32,14 +32,24 @@
   <!-- Fim da Barra lateral -->
   <div class="edit-composteira">
     <h1>Editando '{{composteira.nome}}'</h1>
-    <form method="POST">
+    <!--<form method="POST">
       {% csrf_token %}
       {{ form|crispy }}
       <input type="submit" class="btn btn-success" value="Editar Composteira">
 
+    </form>-->
+    
+    <form method="POST">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <select>
+        <option disabled selected="true">-- select Insumos --</option>
+        {% for Insumos in form%}
+        <option value="{{Insumo.id}}">{{Insumo.nome_insumo}}</option>
+        {%endfor %}
+      </select>
+      <input type="submit" class="btn btn-success" value="Editar Composteira">
     </form>
-
-
 
   </div>
 
