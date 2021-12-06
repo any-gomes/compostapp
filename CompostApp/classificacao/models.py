@@ -12,3 +12,7 @@ class Classificacao(models.Model):
         db_table = 'classificacao'
 
 # Métodos
+    def __str__(self):
+        return self.nome_classificação
+   # def get_pontuacao(self):
+       # return self.pontuacao

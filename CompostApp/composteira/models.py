@@ -5,7 +5,6 @@ from django.contrib.auth import get_user_model
 import acompanhamentoComposteira
 from acompanhamentoComposteira.apps import AcompanhamentoComposteiraConfig
 from meta.apps import MetaConfig
-import meta, insumo
 from insumo.models import Insumo
 
 
@@ -30,15 +29,13 @@ class Composteira(models.Model):
     def __str__(self):
         return self.nome
         # return "{} ({})".format(self.data_inicio_comp, self.tamanho_comp)
+    #def get_valorInsumo(self):
+        #return self.insumo
 
-    def adicionar_meta(self):
-        print("")
-
-    def adicionar_acomp(self):
-        print("")
-
-    def acompanhar_comp(self):
-        print("")
+    def calcula_score(self):
+        max_tamanho = self.insumo.count()*3
+        score = (sum(i.classificacao_insumo.pontuacao for i in self.insumo.all())/max_tamanho)*100
+        return round(score,1)
 
     def adicionar_insumo(self):
         print("")
