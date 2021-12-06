@@ -10,7 +10,7 @@ class AcompanhamentoComposteira(models.Model):
     temperatura = models.FloatField(null=True, blank=True)
     muita_umidade = models.BooleanField(null=True, blank=True)
     odor_desagradavel = models.BooleanField(null=True, blank=True)
-    pontuacao_acomp = models.IntegerField(null=True, blank=True)
+    pontuacao_acomp = models.FloatField(null=True, blank=True)
     img_acomp = models.ImageField(null=True, upload_to='images/')
 
     # Metadados
