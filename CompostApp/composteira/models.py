@@ -33,7 +33,10 @@ class Composteira(models.Model):
         #return self.insumo
 
     def calcula_score(self):
-        max_tamanho = self.insumo.count()*3
+        if (self.insumo.count() == 0):
+            max_tamanho = 1
+        else:
+            max_tamanho = self.insumo.count()*3
         score = (sum(i.classificacao_insumo.pontuacao for i in self.insumo.all())/max_tamanho)*100
         return round(score,1)
 
