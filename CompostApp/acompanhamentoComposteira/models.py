@@ -10,7 +10,7 @@ class AcompanhamentoComposteira(models.Model):
     temperatura = models.FloatField(null=True, blank=True)
     muita_umidade = models.BooleanField(null=True, blank=True)
     odor_desagradavel = models.BooleanField(null=True, blank=True)
-    pontuacao_acomp = models.FloatField(null=True, blank=True)
+    pontuacao_acomp = models.FloatField(null=True, blank=True, default=1)
     img_acomp = models.ImageField(null=True, upload_to='images/')
 
     # Metadados
@@ -18,8 +18,16 @@ class AcompanhamentoComposteira(models.Model):
         db_table = 'AcompanhamentoComposteira'
 
     # Métodos
-    def sugerir_melhoria(self):
-        print("")
+    def altera_pontuacao(self):
+        if (self.moscas == True):
+            self.pontuacao_acomp -= 0.1
+        if (self.minhocas_morte == True):
+            self.pontuacao_acomp -= 0.1
+        if (self.muita_umidade == True):
+            self.pontuacao_acomp -= 0.1
+        if (self.odor_desagradavel == True):
+            self.pontuacao_acomp -= 0.1
+        
 
     def sugerir_melhoria(self):
         print("")
