@@ -12,7 +12,8 @@ class AcompanhamentoComposteira(models.Model):
     odor_desagradavel = models.BooleanField(null=True, blank=True)
     pontuacao_acomp = models.FloatField(null=True, blank=True, default=1)
     img_acomp = models.ImageField(null=True, upload_to='images/')
-
+    msg_erro = models.CharField(default= "Erros encontrados! para resolvê-los faça as seguintes alterações:\n", max_length= 500)
+    erro = models.BooleanField(default= False)
     # Metadados
     class Meta:
         db_table = 'AcompanhamentoComposteira'
@@ -21,12 +22,22 @@ class AcompanhamentoComposteira(models.Model):
     def altera_pontuacao(self):
         if (self.moscas == True):
             self.pontuacao_acomp -= 0.1
+            self.erro = True
+            self.msg_erro += "-Utilize de repelentes naturais como óleo de citronela e repelente de neem para afastar as moscas\n"
         if (self.minhocas_morte == True):
             self.pontuacao_acomp -= 0.1
+            self.erro = True
+            self.msg_erro += "-Mova a composteira para um lugar ventilado e com sombra!\n"
         if (self.muita_umidade == True):
             self.pontuacao_acomp -= 0.1
+            self.erro = True
+            self.msg_erro += "-adicione serragem e folhas secas para diminuir a umidade, mas cuidado para não adicionar serragem com produtos químicos\n"
         if (self.odor_desagradavel == True):
             self.pontuacao_acomp -= 0.1
+            self.erro = True
+            self.msg_erro += "-Abra a tampa da composteira, remexa o conteúdo e adicione material seco, porém não coloque novos resíduos por pelo menos dois dias\n"
+        return self.pontuacao_acomp
+
         
 
     def sugerir_melhoria(self):
