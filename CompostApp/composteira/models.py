@@ -37,11 +37,11 @@ class Composteira(models.Model):
             max_tamanho = 1
         else:
             max_tamanho = self.insumo.count()*3
-        score = (sum(i.classificacao_insumo.pontuacao for i in self.insumo.all())/max_tamanho)*100
+        score = ((sum(i.classificacao_insumo.pontuacao for i in self.insumo.all())/max_tamanho)*self.acompanhamento.first().altera_pontuacao())*100
         return round(score,1)
 
-    def adicionar_insumo(self):
-        print("")
+    def mensagem_erro(self):
+        return self.acompanhamento.first().error_warning()
 
     def sugerir_insumo(self):
         print("")
