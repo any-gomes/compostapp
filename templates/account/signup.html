@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width">
     <title>Cadastro</title>
 		{% load static %}
+    {% load i18n %}
+    
     <link href="{% static 'cadastro/cadastro.css' %}" rel="stylesheet">
   </head>
 
@@ -20,7 +22,7 @@
 			<form method="post">
         {% csrf_token %}
         {{ form|crispy }}
-        <button class="btn btn-success" type="submit">Cadastrar</button>
+        <button class="btn btn-success" type="submit">{% trans "Cadastrar" %}</button>
     </form>
 
     </div>

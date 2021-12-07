@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt" dir="pt-BR">
-
 <head>
 	<meta charset="utf-8">
 	<title>CompostApp</title>
 	{% load static %}
+  {% load i18n %}
 	<link href="{% static 'home/homepage.css' %}" rel="stylesheet">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 	
@@ -27,30 +27,31 @@
       <!-- Foto de Perfil -->
       
 			{% if user.is_authenticated %}
-			<a href="{% url 'pages:home' %}"><i class="fas fa-desktop"></i><span> Página Inicial</span></a>
-      <a href="#"><i class="fas fa-recycle"></i><span> Composteira</span></a> 
-      <a href="#"><i class="fas fa-user"></i><span>Perfil</span></a>
-      <a href="#"><i class="fas fa-cogs"></i><span> Configurações</span></a> 
-      <a href="{% url 'account_logout' %}"><i class="fas fa-sign-out-alt"></i><span> Sair</span></a>
+			<a href="{% url 'pages:home' %}"><i class="fas fa-desktop"></i><span>{% translate 'Página Inicial' %}</span></a>
+      <a id="add-link" href="homeComposteira/"><i class="fas fa-recycle"></i><span>{% trans "Composteira" %}</span></a>
+      <a href="#"><i class="fas fa-user"></i><span>{% trans "Perfil" %}</span></a>
+      <a href="#"><i class="fas fa-cogs"></i><span>{% trans "Configurações" %}</span></a> 
+      <a href="{% url 'account_logout' %}"><i class="fas fa-sign-out-alt"></i><span>{% trans "Sair" %}</span></a>
 			{%else%}
-			<a href="{% url 'account_login' %}"><i class="fas fa-user"></i><span>Entrar</span></a>
-      <a href="{% url 'account_signup' %}"><i class="fas fa-cogs"></i><span> Cadastrar</span></a> 
+			<a href="{% url 'account_login' %}"><i class="fas fa-user"></i><span>{% trans "Entrar" %}</span></a>
+      <a href="{% url 'account_signup' %}"><i class="fas fa-cogs"></i><span>{% trans "Cadastrar" %}</span></a> 
 			{% endif %}       
+      <a href="#"><i class="fas fa-language"></i><span>{% trans "Idioma" %}</span></a> 
     </div>
 		
     <!-- Fim da Barra lateral -->    
     <div class="conteudo">
       <div class="cartao">
-        <p><span>O que é Compostagem e Para que Serve?</span><br><br> 
-        A compostagem é um processo natural de decomposição da matéria orgânica de origem animal ou vegetal. Na propriedade rural, a compostagem pode ser um processo de grande importância econômica, pois resíduos como esterco dos animais, palhas, folhas de árvores e outros resíduos orgânicos são reciclados, transformando-se em fertilizantes ou húmus.
-        O processo de compostagem envolve transformações muito complexas de natureza biológica e química, promovidas por uma grande variedade de microrganismos como fungos e bactérias que vivem no solo. Esses organismos obtêm, a partir da degradação da matéria orgânica, o carbono e os demais nutrientes minerais, necessários para a sua sobrevivência. 
+        <p><span>{% translate 'O que é Compostagem e Para que Serve?' %}</span><br><br> 
+        {% trans "A compostagem é um processo natural de decomposição da matéria orgânica de origem animal ou vegetal. Na propriedade rural, a compostagem pode ser um processo de grande importância econômica, pois resíduos como esterco dos animais, palhas, folhas de árvores e outros resíduos orgânicos são reciclados, transformando-se em fertilizantes ou húmus." %}
+        {% trans "O processo de compostagem envolve transformações muito complexas de natureza biológica e química, promovidas por uma grande variedade de microrganismos como fungos e bactérias que vivem no solo." %}
       </p>
       </div>
       <div class="cartao">
-        <p><span>Benefícios da Compostagem</span><br><br>A compostagem serve para reciclar os restos de comida e residuos vegetais das casas, escolas, jardins ou hortas, que teriam como destino final o aterro sanitário ou pior, o lixão.</p>
+        <p><span>{% trans "Benefícios da Compostagem" %}</span><br><br>{% trans "Reciclar os restos de comida e residuos vegetais das casas, escolas, jardins ou hortas, que teriam como destino final o aterro sanitário ou o lixão." %}</p>
       </div>
       <div class="cartao">
-        <p><span>Como Fazer</span><br><br>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+        <p><span>{% trans "Como Fazer" %}</span><br><br>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
       </div>
     </div> 
 

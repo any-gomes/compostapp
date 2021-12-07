@@ -8,7 +8,7 @@
 	<meta name="viewport" content="width=device-width">
 	<title>Login</title>
 	{% load static %}
-
+  {% load i18n %}
 	<link href="{% static 'login/login.css' %}" rel="stylesheet">
 </head>
 
@@ -21,11 +21,11 @@
 		<br><br>
     <section class="user-login">
       <div class="user-login">
-        <h1 class="user-login_title">Fazer Login</h1>
+        <h1 class="user-login_title">{% translate 'Fazer Login' %}</h1>
         <form method="post">
         {% csrf_token %}
         {{ form|crispy }}
-        <button class="btn btn-success" type="submit">Entrar</button>
+        <button class="btn btn-success" type="submit">{% trans "Entrar" %}</button>
     </form>
       </div>
     </section>
