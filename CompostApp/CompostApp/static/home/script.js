@@ -5,6 +5,13 @@ $(document).ready(function () {
     var searchBtn = $('#search-btn');
     var searchForm = $('#search-form');
     var filter = $('#filter');
+    var insumovar = $('#insumoselect');
+        $options=$insumovar.find('option');
+        $insumovar.on('change', function()
+        {
+            $insumovar.html($options.filter('[value= "' + this.value + '"]'))
+
+        }).trigger('change');
 
     $(deleteBtn).on('click', function (e) {
 
@@ -28,4 +35,10 @@ $(document).ready(function () {
         window.location.href = baseUrl + '?filter=' + filter;
     });
 
+
+
+
+
+
 });
+

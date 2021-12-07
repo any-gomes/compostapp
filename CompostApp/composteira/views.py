@@ -92,37 +92,3 @@ def deleteComposteira(request, id):
     return redirect('/homeComposteira')
 
 
-def novoInsumo(request):
-    if request.method == 'POST':
-        nInsumo = InsumoForms(request.POST)
-
-        if nInsumo.is_valid():
-            cd = nInsumo.cleaned_data
-            insumo = Insumo( nome=cd['nome_insumo'])
-            insumo.save()
-
-           # composteira = nComposteira.save()
-            return redirect('/')
-    else:
-        nInsumo = InsumoForms()
-        return render(request, 'account/addinsumo.html', {'insumo': insumo})
-        #return render(request, 'account/addinsumo.html', {'form': nInsumo})
-
-def addDesempenhoMeta(request):
-    if request.method == 'POST':
-        nDesempenhoMeta = DesempenhoMetaForms(request.POST)
-
-        if nDesempenhoMeta.is_valid():
-            cd = nDesempenhoMeta.cleaned_data
-            composteira = DesempenhoMetaForms(
-                         nome=cd['meta_concluido']
-                      )
-            DesempenhoMeta.save()
-
-           # composteira = nDesempenhoMeta.save()
-            return redirect('/')
-
-
-    else:
-        nDesempenhoMeta = DesempenhoMeta()
-        return render(request, 'account/addDesempenhoMeta.html', {'form': nDesempenhoMeta})

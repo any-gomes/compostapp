@@ -14,14 +14,15 @@ Including another URLconf
 """
 from django import urls
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import include, path, re_path
 from django.conf.urls.static import static
 from django.conf import settings
 from django.conf.urls import i18n
 
 from django.conf.urls.i18n import i18n_patterns
 from composteira import views
-
+import insumo.views
+import composteira.views
 
 urlpatterns = [
     # Django Admin
@@ -30,11 +31,13 @@ urlpatterns = [
     path("accounts/", include("allauth.urls")),
     # Local
     path("", include("pages.urls", namespace="pages")),
-    path('homeComposteira/',views.composteiraList, name="home-composteira"),
-    path('homeComposteira/novaComposteira/',views.novaComposteira, name="nova-composteira"),
-    path('homeComposteira/<int:id>/', views.composteiraView, name="composteira-view"),
-    path('homeComposteira/editComposteira/<int:id>/', views.editComposteiraM, name="edit-composteira"),
-    path('homeComposteira/deleteComposteira/<int:id>/', views.deleteComposteira, name="delete-composteira"),
+    path('homeComposteira/',composteira.views.composteiraList, name="home-composteira"),
+    path('homeComposteira/novaComposteira/',composteira.views.novaComposteira, name="nova-composteira"),
+    path('homeComposteira/<int:id>/', composteira.views.composteiraView, name="composteira-view"),
+    path('homeComposteira/editComposteira/<int:id>/', composteira.views.editComposteiraM, name="edit-composteira"),
+    path('homeComposteira/deleteComposteira/<int:id>/', composteira.views.deleteComposteira, name="delete-composteira"),
+    #re_path(r'addinsumo/', insumo.views.Cascadingdllitems, name="novo-insumo"),
+    re_path(r'^addinsumo/',insumo.views.insumoList, name="novo-insumo"),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += i18n_patterns (
