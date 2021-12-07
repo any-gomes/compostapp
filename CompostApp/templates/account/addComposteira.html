@@ -1,3 +1,4 @@
+
 {% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="pt" dir="pt-BR">
@@ -6,7 +7,7 @@
 	<title>CompostApp</title>
 	{% load static %}
   {% load i18n %}
-	<link href="{% static 'home/homepage.css' %}" rel="stylesheet">
+	<link href="{% static 'composteira/homepage.css' %}" rel="stylesheet">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 	
 </head>
@@ -27,7 +28,8 @@
 
 		
     <!-- Fim da Barra lateral --> 
-    {% block content %}   
+    {% block content %} 
+    <div class="conteudo"></div>  
     <div class="offset-1 col-10 list-div">
         <h1>Adicionar Composteira</h1>
         <form method="POST">
@@ -38,6 +40,7 @@
         </form>
 
     </div> 
+    </div>
     {% endblock %}
 
   </body>

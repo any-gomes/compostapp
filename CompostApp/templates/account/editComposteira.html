@@ -7,7 +7,7 @@
   <title>CompostApp</title>
   {% load static %}
   {% load i18n %}
-  <link href="{% static 'home/homepage.css' %}" rel="stylesheet">
+  <link href="{% static 'composteira/homepage.css' %}" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 
 </head>
@@ -30,6 +30,7 @@
 
 
   <!-- Fim da Barra lateral -->
+  <div class="conteudo">
   <div class="edit-composteira">
     <h1>Editando '{{composteira.nome}}'</h1>
     <!--<form method="POST">
@@ -52,6 +53,7 @@
     </form>
 
   </div>
+</div>
 
 </body>
 

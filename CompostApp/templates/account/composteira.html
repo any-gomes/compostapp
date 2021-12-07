@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt" dir="pt-BR">
 
@@ -6,27 +7,52 @@
   <title>CompostApp</title>
   {% load static %}
   {% load i18n %}
-  <link href="{% static 'home/homepage.css' %}" rel="stylesheet">
+  <link href="{% static 'composteira/homepage.css' %}" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 
 </head>
 
+
 <body>
 
+  <header>      
+    <div class="left_area">
+      <a style="text-decoration: none" href="{% url 'pages:home' %}"><h3> Compost<span>App</span></h3> </a>    
+    </div>      
+  </header>
+  
+  <div class="sidebar">
+    <!-- Foto de Perfil -->
+    
+    {% if user.is_authenticated %}
+    <a href="{% url 'pages:home' %}"><i class="fas fa-desktop"></i><span>{% translate 'Página Inicial' %}</span></a>
+    <a id="add-link" href="homeComposteira/"><i class="fas fa-recycle"></i><span>{% trans "Composteira" %}</span></a>
+    <a href="#"><i class="fas fa-user"></i><span>{% trans "Perfil" %}</span></a>
+    <a href="#"><i class="fas fa-cogs"></i><span>{% trans "Configurações" %}</span></a> 
+    <a href="{% url 'account_logout' %}"><i class="fas fa-sign-out-alt"></i><span>{% trans "Sair" %}</span></a>
+    {%else%}
+    <a href="{% url 'account_login' %}"><i class="fas fa-user"></i><span>{% trans "Entrar" %}</span></a>
+    <a href="{% url 'account_signup' %}"><i class="fas fa-cogs"></i><span>{% trans "Cadastrar" %}</span></a> 
+    {% endif %}       
+    <a href="#"><i class="fas fa-language"></i><span>{% trans "Idioma" %}</span></a> 
+  </div>
+  <div class="conteudo">
   <div class="offset-1 col-10 list-div">
     <h1>Minhas Composteiras</h1>
 
     <div class="offset-1 col-10 list-div">
 
       <a id="add-link" href="novaComposteira/"><i class="fas fa-plus"></i><span>{% trans "Composteira" %}</span></a>
-      <a id="add-link" href="novaComposteira/"><i class="fas fa-plus"></i><span>{% trans "Insumo" %}</span></a>
+      
 
 
       <div class="col-9 serch-div">
         <form method="GET" id="search-form">
           <input type="text" id="search" name="search" placeholder="Digite o nome da composteira para pesquisar"
             value="{{ request.GET.search }}">
-          <i class="fas fa-search" id="search-btn"></i>
+            <input type="submit" value="Buscar">
+          
+          
         </form>
       </div>
       {% if messages %}
@@ -47,6 +73,7 @@
         {% endfor %}
       </ul>
     </div>
+  </div>
   </div>
   <script src="{% static 'home/script.js' %}"></script>
 </body>
